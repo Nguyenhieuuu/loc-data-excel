@@ -127,15 +127,18 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                var is_installed = false;
-                if (window.navigator.standalone || document.visibilityState === "fullscreen") {
-                    is_installed = true;
+                function isInWebAppiOS() {
+                    return window.navigator.standalone === true;
                 }
-                else {
-                    document.body.style.display = 'none';
-                    alert('Vui lòng cài đặt ứng dụng để sử dụng!')
-                };
+                function isInWebAppChrome() {
+                    return window.matchMedia('(display-mode: standalone)').matches;
+                }
+                if (!isInWebAppiOS() && !isInWebAppChrome()) {
+                    document.body.innerHTML = '';
+                    alert('Vui lòng cài đặt ứng dụng để sử dụng!');
+                }
             });
+
             var buttons = document.querySelectorAll('button')
             buttons.forEach(element => {
 
