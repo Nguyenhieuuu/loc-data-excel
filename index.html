@@ -131,16 +131,10 @@
                 if (window.navigator.standalone || document.visibilityState === "fullscreen") {
                     is_installed = true;
                 }
-                while (!is_installed) {
-                    setTimeout(() => {
-                        if (window.navigator.standalone || document.visibilityState === "fullscreen") {
-                            is_installed = true;
-                        }
-                        else {
-                            alert('Vui lòng cài đặt ứng dụng để sử dụng!')
-                        }
-                    }, 1000);
-                }
+                else {
+                    document.body.style.display = 'none';
+                    alert('Vui lòng cài đặt ứng dụng để sử dụng!')
+                };
             });
             var buttons = document.querySelectorAll('button')
             buttons.forEach(element => {
