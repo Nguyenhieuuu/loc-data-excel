@@ -1,0 +1,13 @@
+{
+    "name": "Lọc Data EXCEL",
+    "short_name": "Lọc Data EXCEL",
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [{
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }]
+  }
