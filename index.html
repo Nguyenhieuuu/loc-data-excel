@@ -133,11 +133,15 @@
                 function isInWebAppChrome() {
                     return window.matchMedia('(display-mode: standalone)').matches;
                 }
-                if (!isInWebAppiOS() && !isInWebAppChrome()) {
+                function isMobile() {
+                    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                }
+                if (isMobile() && !isInWebAppiOS() && !isInWebAppChrome()) {
                     document.body.innerHTML = '';
                     alert('Vui lòng cài đặt ứng dụng để sử dụng!');
                 }
             });
+
 
             var buttons = document.querySelectorAll('button')
             buttons.forEach(element => {
