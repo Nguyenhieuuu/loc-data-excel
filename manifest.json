@@ -1,7 +1,7 @@
 {
     "name": "Lọc Data EXCEL",
     "short_name": "Lọc Data EXCEL",
-    "start_url": "/index.html",
+    "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
