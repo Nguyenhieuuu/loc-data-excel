@@ -75,6 +75,11 @@
                 background-color: #0056b3;
             }
 
+            button:focus {
+                outline: none;
+                background-color: #0056b3;
+            }
+
             .button-desktop {
                 display: block;
             }
@@ -131,7 +136,7 @@
                         if (window.navigator.standalone || document.visibilityState === "fullscreen") {
                             is_installed = true;
                         }
-                        else{
+                        else {
                             alert('Vui lòng cài đặt ứng dụng để sử dụng!')
                         }
                     }, 1000);
