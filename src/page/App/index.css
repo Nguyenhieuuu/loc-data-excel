@@ -1,0 +1,17 @@
+.rectangle-frame {
+    border: 2px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.file-index {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.file-delete {
+    margin-left: auto;
+    cursor: pointer;
+}
