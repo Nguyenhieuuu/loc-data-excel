@@ -53,6 +53,8 @@ export default () => {
                 const filteredData: string[] = [];
                 for (let row = 0; row < jsonData.length; row++) {
                     let count = 0;
+                    let countDau = 0;
+                    let countDuoi = 0;
                     const rowData: any = jsonData[row];
                     for (let col = 0; col < rowData.length - 1; col += 2) {
                         const num1 = Number(rowData[col]) % 100;
@@ -60,9 +62,15 @@ export default () => {
                         if (Math.floor(num1) === Math.floor(num2) || num1 % 10 === num2 % 10 || Math.floor(num1 / 10) === Math.floor(num2 / 10)) {
                             count = count + 1;
                         }
+                        if (Math.floor(num1 / 10) === Math.floor(num2 / 10)) {
+                            countDau = countDau + 1;
+                        }
+                        if (num1 % 10 === num2 % 10) {
+                            countDuoi = countDuoi + 1;
+                        }
                     }
                     if (count > 0)
-                        filteredData.push(`Hàng ${row + 1} trùng ${count} lần`);
+                        filteredData.push(`Hàng ${row + 1} trùng ${count} lần | Đầu trùng ${countDau} lần | Đuôi trùng ${countDuoi} lần`);
                 }
                 results = results + filteredData.join('; ');
             }
@@ -95,7 +103,8 @@ export default () => {
                         return false; // Ngăn chặn việc tải lên tự động
                     }
                 }}
-                onRemove={(file: any) => handleRemove(file)}>
+                onRemove={(file: any) => handleRemove(file)}
+            >
                 <p className="ant-upload-drag-icon">
                     <InboxOutlined />
                 </p>
@@ -109,7 +118,11 @@ export default () => {
                     <p>Kết quả lọc file {file.name}:</p>
                     <div className="rectangle-frame">
                         {fileResult[index]?.result?.split(';')?.map((content: any) => (
-                            <div className="file-name">{content}</div>
+                            <>
+                                <div className="file-name deeppink">{content?.split('|')[0]}</div>
+                                <div className="file-name tab">{content?.split('|')[1]}</div>
+                                <div className="file-name tab">{content?.split('|')[2]}</div>
+                            </>
                         ))}
                     </div>
                 </div>
