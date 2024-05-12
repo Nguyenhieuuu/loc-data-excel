@@ -15,3 +15,11 @@
     margin-left: auto;
     cursor: pointer;
 }
+
+.deeppink {
+    color: deeppink;
+}
+
+.tab {
+    padding-left: 20px;
+}
