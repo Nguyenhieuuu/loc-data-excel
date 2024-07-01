@@ -72,7 +72,7 @@ export default () => {
 
                     const rowData: any = jsonData[row];
                     for (let col = 0; col < rowData.length - 1; col += 2) {
-                        const num1 = Number(rowData[col]);
+                        const num1 = rowData[col];
                         const num2chuc = Math.floor(Number(rowData[col + 1]) / 10);
                         const num2donvi = Number(rowData[col + 1]) % 10;
                         let check1 = false;
